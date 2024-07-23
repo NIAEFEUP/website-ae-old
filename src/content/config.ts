@@ -77,7 +77,15 @@ const presidentsCollection = defineCollection({
   })
 });
 
+const materialCollection = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    quantity: z.number(),
+    description: z.string().optional(),
+  })
+})
+
 export const collections = {
   post: postCollection,
-  presidents: presidentsCollection
-};
+  presidents: presidentsCollection,
+  material: materialCollection}

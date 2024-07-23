@@ -1,0 +1,24 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import Features4 from "~/components/widgets/Features4.astro";
+
+const materials = await getCollection('material');
+const metadata = {
+    title: 'Space',
+};
+---
+<Layout metadata={metadata}>
+
+<Features4
+    title="Materials"
+    columns={3}
+    items={materials.map(material => {
+        return {
+            title: `${material.data.name}`,
+            description: `${material.data.quantity}`
+        }
+    })}
+>
+</Features2>
+</Layout>
