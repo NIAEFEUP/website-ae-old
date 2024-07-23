@@ -15,7 +15,12 @@ The website for AEFEUP.
 - **Text editor** - We recommend [VS Code](https://code.visualstudio.com/) with the [Official Astro extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
 - **Terminal** - Astro is accessed through its command-line interface (CLI).
 
-### Running
+#### Optional:
+
+- **Docker**
+- **Docker Compose**
+
+### Running with npm (or pnpm or yarn)
 
 To run the development environment using npm (or pnpm or yarn) do:
 
@@ -28,6 +33,28 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
+
+### Running with Docker
+
+#### Installing Docker and Docker Compose
+
+To install docker you can follow the instructions on the [Docker docs](https://docs.docker.com/engine/install/) (Select your Linux distribution on the Server section)
+
+Follow [these](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user/) instructions to run Docker as a non root user.
+
+After installing Docker follow these instructions on the [Docker docs](https://docs.docker.com/compose/install/) to install Docker Composer.
+
+#### Running
+
+To run the development environment using Docker do:
+
+```bash
+./dev.sh
+```
+
+This will build the Docker image the first time you run and start the development server at port `3000` and storybook at port `6006`.
+
+To stop press Ctrl-C and it will remove all related containers.
 
 ### Linting
 
@@ -51,13 +78,22 @@ If you wish, you can activate the formatter to run automatically on save by addi
 
 ## Building
 
-To create a production version of your app:
+### With npm:
 
 ```bash
 npm run build
 ```
 
 You can preview the production build with `npm run preview`.
+
+### With docker
+
+To create a production version of your app using docker:
+
+```bash
+docker build -t {IMAGE_NAME} -f Dockerfile.prod .
+docker run --env PORT=80 -p {YOUR_PORT}:80 {IMAGE_NAME}
+```
 
 ## Project Details
 
