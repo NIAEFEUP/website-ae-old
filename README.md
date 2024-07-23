@@ -6,9 +6,6 @@
 - Vue [planned to set up]
 
 ## Getting started
-
-Install the [Astro VS Code extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
-
 Install the dependencies...
 ```bash
 npm install
@@ -18,6 +15,12 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Useful VSCode extensions
+
+[Astro Extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
+[Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+[MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx).
 
 ### All commands
 

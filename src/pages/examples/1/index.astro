@@ -1,0 +1,71 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import { getCollection, getEntry } from 'astro:content';
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+const presidents = await getCollection('presidents');
+
+// Get a single entry from a collection.
+// Requires the name of the collection and either
+// the entry `slug` (content collections) or `id` (data collections)
+const davidBruno = await getEntry('presidents', 'david-bruno');
+const davidBrunoData = davidBruno?.data;
+
+const title = "123"
+const subtitle = "123"
+const content = "12313"
+---
+
+<Layout>
+  <section class="relative md:-mt-[76px] not-prose">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+      <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8 flex-col">
+        {presidents.map(president => {
+          const data = president.data;
+
+          return <div>
+            <h1>{data.name}</h1>
+            <p>{data.year}</p>
+            {data.socials.map(social => {
+              <div>
+                <p>{social?.platform}</p>
+                <p>{social?.url}</p>
+              </div>
+            })}
+          </div>
+        })}
+
+        <div>
+          <h1>{davidBrunoData?.name}</h1>
+          <p>{davidBrunoData?.year}</p>
+          {davidBrunoData?.socials.map(social => {
+            <div>
+              <p>{social?.platform}</p>
+              <p>{social?.url}</p>
+            </div>
+          })}
+        </div>
+
+        <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
+          {
+            title && (
+              <h1
+                class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+                set:html={title}
+              />
+            )
+          }
+          <div class="max-w-3xl mx-auto lg:max-w-none">
+            {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          </div>
+          {content && <Fragment set:html={content} />}
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
