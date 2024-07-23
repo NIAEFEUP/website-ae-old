@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "website-ae",
   "version": "1.0.0-beta.39",
   "description": "AstroWind: A free template using Astro 4.0 and Tailwind CSS. Astro starter theme.",
   "type": "module",
@@ -7,10 +7,11 @@
     "node": "^18.17.1 || ^20.3.0 || >= 21.0.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "prod": "node ./build",
     "astro": "astro",
     "format": "prettier -w .",
     "lint:eslint": "eslint ."

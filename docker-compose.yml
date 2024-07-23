@@ -1,0 +1,12 @@
+services:
+  website-ae-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4321:4321
+    volumes:
+      - ./src:/usr/src/website-niaefeup-frontend/src
+      - ./static:/usr/src/website-niaefeup-frontend/static
+    environment:
+      - PORT=4321
