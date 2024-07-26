@@ -35,6 +35,10 @@ export const headerData = {
           href: getPermalink('/services'),
         },
         {
+          text: 'Apoio Social e Bem-Estar',
+          href: getPermalink('/apoio-social'),
+        },
+        {
           text: 'Pricing',
           href: getPermalink('/pricing'),
         },

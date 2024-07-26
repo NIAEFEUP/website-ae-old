@@ -1,0 +1,91 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Apoio Social e Bem-Estar',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Apoio Social e Bem-Estar"
+    title="Apoio Social e Bem-Estar"
+    subtitle="Iniciativas para estudantes e apoio a necessidades educativas especiais para promover a integração e bem-estar dos estudantes."
+    image={{
+      src: 'https://images.unsplash.com/photo-1579208570378-8c970854bc23?q=80&w=2122&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      alt: 'AstroWind Hero',
+    }}
+  />
+
+  <!-- Canais de Apoio ************** -->
+
+  <!-- SOURCES: -->
+  <!-- FAEES: https://sigarra.up.pt/sasup/pt/web_base.gera_pagina?P_pagina=278036 -->
+  <!-- FAS: https://www.up.pt/portal/pt/sasup/bolsas/fundo-apoio-social/ -->
+
+  <!-- TODO: colocar contactos, links (?) -->
+  <FAQs
+    title="Canais de Apoio"
+    subtitle="Explore os nossos programas de suporte para garantir o seu bem-estar e sucesso académico."
+    columns={1}
+    items={[
+      {
+        title: 'Fundo de Apoio Extraordinário de Emergência Social (FAEES)',
+        description:
+          'O FAEES é uma medida de caráter pontual e extraordinário de emergência social resultante de ocorrências imprevistas e não enquadráveis nos mecanismos de apoio já estabelecidos e regulamentados.',
+      },
+      {
+        title: 'Fundo de Apoio Social',
+        description:
+          'O Fundo de Apoio Social da Universidade do Porto (FAS) é um programa de apoio aos estudantes em situação de comprovado estado de necessidade económica, que visa contribuir para o combate ao abandono e insucesso escolar e a aquisição e desenvolvimento de competências transversais promotoras de empregabilidade e do sucesso profissional.',
+      },
+    ]}
+  />
+
+  <!-- Saúde Mental **************** -->
+  <!-- TODO: colocar contactos, links (?) -->
+  <Features2
+    title="Saúde Mental"
+    subtitle="Apoio psicológico para o bem-estar e sucesso dos estudantes."
+    columns={2}
+    items={[
+      {
+        title: 'Gabinete de Apoio ao Estudante',
+        description:
+          'O Gabinete de Apoio ao Estudante exerce a sua atividade no âmbito do apoio aos estudantes da FEUP e da promoção do seu bem-estar e sucesso académico.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Parceria Consultas de Psicologia',
+        description:
+          'Trata-se de um apoio especializado que, baseando-se numa relação empática e de apoio, permite ao estudante encontrar alternativas e desenvolver estratégias para a resolução dos seus problemas em domínios de natureza psicossocial, vocacional e/ou de desenvolvimento pessoal.',
+        icon: 'tabler:sofa',
+      },
+    ]}
+  />
+
+  <!-- Voluntariado Estudantil **************** -->
+  <!-- SOURCE: https://sigarra.up.pt/feup/pt/web_base.gera_pagina?p_pagina=258934 -->
+  <FAQs
+    title="Voluntariado Estudantil"
+    subtitle="Ações de interesse social e comunitário realizadas de forma desinteressada que desenvolvem competências pessoais e sociais e promovem a responsabilidade, ética e compromisso social."
+    columns={1}
+    items={[
+      {
+        title: 'Voluntariado UP',
+        description:
+          'O objetivo é estimular a comunidade académica, em especial os estudantes, a envolverem-se em atividades de responsabilidade social com vista à promoção do bem comum e de uma maior justiça social, em regime livre, generoso e totalmente voluntário. Ser voluntário na U.Porto implica, quer para as entidades de acolhimento, quer para o voluntário, o assumir de um compromisso, de acordo com os princípios prosseguidos pela U.Porto.',
+      },
+      {
+        title: 'G.A.S.Porto',
+        description:
+          'O G.A.S.Porto é uma ONGD criada em Abril de 2002 que desenvolve projetos de voluntariado na cidade do Porto em parceria com 18 instituições sociais, trabalhando com crianças de bairros sociais, jovens institucionalizados, idosos isolados, pessoas com deficiência mental, pessoas em situação sem-abrigo e mães adolescentes. Internacionalmente o seu trabalho realiza-se em Moçambique e Timor-Leste, onde desenvolve projetos principalmente nas áreas de Educação e Saúde. ',
+      },
+    ]}
+  />
+</Layout>
