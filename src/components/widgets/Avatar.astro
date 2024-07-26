@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+import type { Avatar as Props } from '~/types';
+
+const { name = null, description = null, image = null, socials = [] } = Astro.props;
+
+const social_icons = {
+  website: 'ant-design:global-outlined',
+  linkedin: 'ant-design:linkedin-filled',
+  instagram: 'ant-design:instagram-filled',
+  github: 'ant-design:github-filled',
+};
+
+---
+
+<div class="text-center w-fit border-gray border p-5 rounded-xl">
+  {image && <Image src={image} alt={name} class="w-20 h-20 object-cover mx-auto" />}
+  {name && <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-lg mt-2" set:html={name} />}
+
+  {description && <p class="text-muted" set:html={description} />}
+
+  {
+    socials.length > 0 && (
+      <div class="flex justify-center mt-2">
+        {socials.map((social) => (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:text-primary-dark transition ease-in duration-200 mx-2"
+          >
+            <Icon name={social_icons[social.type]} class="w-6 h-6" />
+          </a>
+        ))}
+      </div>
+    )
+  }
+</div>

@@ -1,0 +1,37 @@
+---
+import type { Lineup as Props } from '~/types';
+import Avatar from './Avatar.astro';
+import Headline from '../blog/Headline.astro';
+import Avatar2 from './Avatar2.astro';
+
+const { title = null, bgImage = null, coach = null, players = [[]] } = Astro.props;
+
+---
+
+<>
+  {bgImage && <div class="bg-cover bg-center bg-no-repeat h-96" style={`background-image: url(${bgImage})`} />}
+
+  {title && <Headline title={title} />}
+
+  <div class="flex justify-center mb-5">
+    {coach && <Avatar2 name={coach.name} description={coach.description} image={coach.image} socials={coach.socials} />}
+  </div>
+
+  <div class="flex flex-col gap-5">
+    {
+      players.map((line) => {
+        return (
+          <div class="flex items-center mx-auto gap-5">
+            {line.map((item) => {
+              return (
+                <Avatar name={item.name} description={item.description} image={item.image} socials={item.socials} />
+              );
+            })}
+          </div>
+        );
+      })
+    }
+  </div>
+
+  
+</>

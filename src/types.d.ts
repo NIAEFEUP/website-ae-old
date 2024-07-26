@@ -1,5 +1,6 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { HTMLAttributes, ImageMetadata } from 'astro/types';
+import { Socials } from '~/enums';
 
 export interface Post {
   /** A unique ID number that identifies a post. */
@@ -284,3 +285,23 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+
+export interface SocialAttribute {
+  type: Socials;
+  href?: string;
+}
+
+
+export interface Avatar{
+  image?: string;
+  name?: string;
+  socials?: Array<SocialAttribute>;
+  description?: string;
+}
+
+export interface Lineup{
+  title?: string;
+  bgImage?: string;
+  coach?: Avatar;
+  players: Array<Array<Avatar>>;
+}
