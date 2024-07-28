@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/LandingLayout.astro';
+import { getCollection } from 'astro:content';
+
+const events = await getCollection('events');
+
+const title = "Eventos";
+---
+
+<Layout>
+    <section class="relative md:-mt-[76px]">
+        <div class="relative max-w-7xl mx-auto sm:px-6">
+            
+            <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+            <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-2 sm:px-6 flex-col">
+                <div class="basis-1 text-center lg:text-left md:pb-4 mx-auto">
+                    {
+                        <h1
+                            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-2 font-heading"
+                            set:html={title}
+                        />
+                    }
+                </div>
+
+                {events.map(event => {
+                    const data = event.data;
+
+                    return <div class="sm:px-6 p-4">
+                        <h2
+                            class="text-3xl md:text-4xl pb-2 font-bold leading-tighter tracking-tighter font-heading dark:text-gray-200"
+                            set:html={data.name}
+                        />
+                        <p>{data.description}</p>
+                    </div>
+                })}
+            </div>
+        </div>
+    </section>
+</Layout>
