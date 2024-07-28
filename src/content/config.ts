@@ -63,6 +63,21 @@ const postCollection = defineCollection({
   }),
 });
 
+// This is optinal
+const presidentsCollection = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    year: z.string(),
+    socials: z.array(
+      z.object({
+        platform: z.string(),
+        url: z.string(),
+      }).optional()
+    )
+  })
+});
+
 export const collections = {
   post: postCollection,
+  presidents: presidentsCollection
 };
