@@ -2,23 +2,83 @@
 import Layout from "~/layouts/Layout.astro";
 import { getCollection } from 'astro:content';
 import Features4 from "~/components/widgets/Features4.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import RequestForm from "~/components/widgets/Request.astro";
+import Button from "~/components/ui/Button.astro";
+import Calendar from "~/components/widgets/Calendar.astro";
 
-const materials = await getCollection('material');
+const materialsCollection = await getCollection('material');
+const materials = materialsCollection.map(material => {return material.data});
 const metadata = {
     title: 'Space',
 };
 ---
 <Layout metadata={metadata}>
-
-<Features4
-    title="Materials"
-    columns={3}
-    items={materials.map(material => {
-        return {
-            title: `${material.data.name}`,
-            description: `${material.data.quantity}`
+    <Hero tagline="Space" title="Space and Material" />
+		<Calendar 
+		events={[
+/*         {
+          title: 'Meeting',
+          start: '2024-07-28T10:30:00',
+          end: '2024-11-12T12:30:00'
+        }, */
+        {
+          title: 'All Day Event',
+          start: '2024-07-28'
+        },
+		]}
+		/>
+    <Features4
+        title="Available Material"
+        columns={3}
+        items={materials.map(material => {
+            return {
+                title: `${material.name}`,
+                description: `${material.quantity}`
+            }
+        })}
+    >
+    </Features4>
+    <RequestForm
+		title="Request"
+		subtitle="Request space or material"
+    inputs={[
+        {
+            type: 'text',
+            name: 'name',
+            label: 'Name'
+        },
+        {
+            type: 'text',
+            name: 'name',
+            label: 'Name'
+        },
+        {
+            type: 'text',
+            name: 'name',
+            label: 'Name'
+        },
+        {
+            type: 'text',
+            name: 'name',
+            label: 'Name'
+        },
+        {
+            type: 'text',
+            name: 'name',
+            label: 'Name'
         }
-    })}
->
-</Features2>
+    ]}
+		materials={materials}
+    textarea={{
+        label: 'Message'
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."
+    button="Send form"
+    />
+
 </Layout>

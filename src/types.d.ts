@@ -141,6 +141,17 @@ export interface Item {
   image?: Image;
 }
 
+export interface Material {
+  name?: string;
+  quantity?: number;
+}
+
+export interface CalendarEvent {
+  description?: string;
+  start_date?: string;
+  end_date?: string;
+}
+
 export interface Price {
   title?: string;
   subtitle?: string;
@@ -210,6 +221,15 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+}
+
+export interface RequestForm {
+  inputs?: Array<Input>;
+  textarea?: Textarea;
+  disclaimer?: Disclaimer;
+  button?: string;
+  description?: string;
+  materials?: Array<Material>
 }
 
 // WIDGETS
