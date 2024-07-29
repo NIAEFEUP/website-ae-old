@@ -1,0 +1,16 @@
+---
+import WidgetWrapper from "../ui/WidgetWrapper.astro";
+import FullCalendar from "../vue/CalendarComponent.vue";
+const {
+    events,
+
+    id,
+    isDark = false,
+    classes = {},
+    bg = await Astro.slots.render('bg'),
+} = Astro.props
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}` } bg={bg}>
+    <FullCalendar client:visible events={events}/>
+</WidgetWrapper>

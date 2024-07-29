@@ -1,0 +1,41 @@
+---
+import RequestForm from "../ui/RequestForm.astro"
+import Headline from "../ui/Headline.astro"
+import WidgetWrapper from "../ui/WidgetWrapper.astro"
+
+const  {
+	title,
+	subtitle,
+	tagline,
+    inputs,
+    textarea,
+    disclamer,
+    button,
+    description,
+		materials,
+
+    id,
+    isDark = false,
+    classes = {},
+    bg = await Astro.slots.render('bg'),
+} = Astro.props
+---
+
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+    {
+			inputs && (
+				<div>
+					<RequestForm
+						inputs={inputs}	
+						textarea={textarea}
+						disclaimer={disclamer}
+						button={button}
+						description={description}
+						materials={materials}
+					/>
+				</div>
+			)
+    }
+</WidgetWrapper>
